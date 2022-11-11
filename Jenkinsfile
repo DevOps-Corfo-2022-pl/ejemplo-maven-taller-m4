@@ -1,15 +1,16 @@
 pipeline {
     agent any
-    tools { 
-        maven 'Maven 3.6.3' 
-        jdk 'jdk11' 
-    }
     stages {
         stage('Hello') {
             steps {
                 echo 'Hello World'
             }
         } 
+        stage('Build'){
+	   withMaven(maven:'mvn'){
+	      sh "mvn clean package"
+	   }
+	}
         stage('Compilación') {
             steps {
 	     git branch: 'main', url: 'https://github.com/paulolagosg/ms-iclab-g5.git'
