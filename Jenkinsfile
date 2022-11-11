@@ -26,7 +26,7 @@ pipeline {
             steps {
                 sh 'nohup bash mvnw spring-boot:run &'
             }
-        }
+        } 
         stage('SonarQube t2m4') {
   	  steps{
     		 withSonarQubeEnv(credentialsId: 'token-sq', installationName: 'sq-taller2-m4') {
