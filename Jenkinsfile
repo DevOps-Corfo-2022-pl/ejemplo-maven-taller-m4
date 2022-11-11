@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Hello World'
             }
-        }
+        } 
         stage('Compilación') {
             steps {
 	     git branch: 'main', url: 'https://github.com/paulolagosg/ms-iclab-g5.git'
