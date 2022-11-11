@@ -30,8 +30,8 @@ pipeline {
         stage('SonarQube t2m4') {
   	  steps{
     		 withSonarQubeEnv(credentialsId: 'token-sq', installationName: 'sq-taller2-m4') {
-  			sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar \
-  				-Dsonar.target=sonar.java.binaries'
+  		   sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar \
+  		      -Dsonar.target=sonar.java.binaries'
    		}
   	  }
        }
