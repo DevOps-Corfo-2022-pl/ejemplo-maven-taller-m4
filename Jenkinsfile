@@ -1,23 +1,23 @@
 pipeline {
     agent any
     stages {
-        stage('Hello') {
+        stage('Inicio') {
             steps {
-                echo 'Hello World'
+                echo 'Iniciando....'
             }
         } 
-        stage('Build'){
-	  steps{
-	withMaven(maven:'mvn'){
-	      sh 'mvn clean package'
-	}
-	  }
-	}
         stage('Compilación') {
             steps {
 	     git branch: 'main', url: 'https://github.com/paulolagosg/ms-iclab-g5.git'
                 sh './mvnw clean compile -e'
             }
+        }
+	stage('Build'){
+          steps{
+                withMaven(maven:'mvn'){
+                      sh 'mvn clean package'
+                }
+          }
         }
         stage('Test') {
             steps {
