@@ -8,7 +8,9 @@ pipeline {
         } 
         stage('Build'){
 	  steps{
-	      sh 'mvnw clean package'
+	withMaven(maven:'mvn'){
+	      sh 'mvn clean package'
+	}
 	  }
 	}
         stage('Compilación') {
