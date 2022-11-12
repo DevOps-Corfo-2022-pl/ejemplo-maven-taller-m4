@@ -12,13 +12,6 @@ pipeline {
                 sh './mvnw clean compile -e'
             }
         }
-	stage('Build'){
-          steps{
-                withMaven(maven:'mvn'){
-                      sh 'mvn clean package'
-                }
-          }
-        }
         stage('Test') {
             steps {
                 sh './mvnw clean test -e'
